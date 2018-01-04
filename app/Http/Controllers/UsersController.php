@@ -33,5 +33,9 @@ class UsersController extends Controller
 
         session()->flash('success', '欢迎，你注册成功了');
         return redirect()->route('users.show', [$user]);
+
+        Auth::login($user);
+        session()->flash('success', '欢迎，您将展开一段新的旅程');
+        return redirect()->route('users.show',[$user]);
     }
 }
